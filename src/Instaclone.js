@@ -1,36 +1,32 @@
 import React, { Component } from "react";
+import { View, Text } from "react-native";
+import { MainFeed, Login, Camera, Profile } from "./components/screens";
 import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  Dimensions,
-  TouchableOpacity
-} from "react-native";
-import config from "./components/config/index";
-import { PostFeed } from "./components/container";
-export default class Instaclone extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1, width: 100 + "%", height: 100 + "%" }}>
-        <View style={styles.tempNav}>
-          <Text>Instagram</Text>
-        </View>
-        <PostFeed />
-      </View>
-    );
-  }
-}
+  TabNavigator,
+  createStackNavigator,
+  createSwitchNavigator,
+  createBottomTabNavigator,
+  createAppContainer
+} from "react-navigation";
 
-const styles = StyleSheet.create({
-  tempNav: {
-    width: 100 + "%",
-    height: 56,
-    marginTop: 30,
-    backgroundColor: "rgb(250,250,250)",
-    borderBottomColor: "rgb(233,233,233)",
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    justifyContent: "center",
-    alignItems: "center"
-  }
+const Tabs = createBottomTabNavigator({
+  feed: MainFeed,
+  camera: Camera,
+  profile: Profile
 });
+const MainStack = createStackNavigator({
+  login: Login,
+  main: Tabs
+});
+export default createAppContainer(
+  createSwitchNavigator({
+    App: MainStack,
+    Tab: Tabs
+  })
+);
+
+// export default class Instaclone extends Component {
+//   render() {
+//     return <MainStack />;
+//   }
+// }
