@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
-import { MainFeed, Login, Camera, Profile } from "./components/screens";
+import {
+  MainFeed,
+  Login,
+  Register,
+  Camera,
+  Profile
+} from "./components/screens";
 import {
   TabNavigator,
   createStackNavigator,
@@ -14,11 +20,12 @@ const Tabs = createBottomTabNavigator({
   camera: Camera,
   profile: Profile
 });
-// const IntroStack = createStackNavigator({
-
-// });
-const MainStack = createSwitchNavigator({
+const IntroStack = createStackNavigator({
   login: Login,
+  register: Register
+});
+const MainStack = createSwitchNavigator({
+  intro: IntroStack,
   main: Tabs
 });
 export default createAppContainer(
