@@ -14,7 +14,10 @@ const Tabs = createBottomTabNavigator({
   camera: Camera,
   profile: Profile
 });
-const MainStack = createStackNavigator({
+// const IntroStack = createStackNavigator({
+
+// });
+const MainStack = createSwitchNavigator({
   login: Login,
   main: Tabs
 });
