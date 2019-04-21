@@ -9,7 +9,6 @@ import {
   Dimensions
 } from "react-native";
 import { MapView, Permissions, Location, Marker } from "expo";
-import Instaclone from "./src/Instaclone";
 
 import bgimage from "./assets/bgimage.jpg";
 import logo from "./assets/icon.png";
@@ -17,7 +16,21 @@ import logo from "./assets/icon.png";
 const { width: WIDTH } = Dimensions.get("window");
 export default class App extends React.Component {
   render() {
-    return <Instaclone />;
+    return (
+      <ImageBackground source={bgimage} style={styles.backgroundContainer}>
+        <View style={styles.logoContainer}>
+          <Image source={logo} style={styles.logo} />
+          <Text style={styles.logoText}>Expressopedia</Text>
+        </View>
+        <View>
+          <TextInput
+            style={styles.input}
+            placeholder={"username"}
+            placeholderTextColor={"black"}
+          />
+        </View>
+      </ImageBackground>
+    );
   }
 }
 
@@ -28,12 +41,6 @@ const styles = StyleSheet.create({
     height: null,
     alignItems: "center",
     justifyContent: "center"
-  },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "gray"
   },
   logoContainer: {
     alignItems: "center"
