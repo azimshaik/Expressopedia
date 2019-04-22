@@ -37,8 +37,14 @@ export default class Register extends Component {
       },
       body: JSON.stringify(this.state.credentials)
     })
-      .then(data => {
-        alert(JSON.stringify(data));
+      .then(response => response.json())
+      .then(jsonResponse => {
+        //console.log(JSON.stringify(jsonResponse));
+        if (jsonResponse.confirmation === "success") {
+          this.props.navigation.navigate("main");
+        } else {
+          throw new Error({ message: "Sorry something went wrong!" });
+        }
       })
       .catch(err => {
         alert(err);
@@ -59,7 +65,7 @@ export default class Register extends Component {
       >
         <Text>Register Screen</Text>
         <TextInput
-          value={this.state.login}
+          value={this.state.email}
           onChangeText={text => this.updateText(text, "email")}
           placeholder="Username"
           style={styles.input}
