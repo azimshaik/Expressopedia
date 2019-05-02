@@ -31,6 +31,24 @@ router.post("/signup", (req, res) => {
     });
 });
 
+router.post("/login", (req, res) => {
+  console.log(req.body);
+  turbo
+    .login(req.body)
+    .then(data => {
+      res.json({
+        confirmation: "success",
+        data: data
+      });
+    })
+    .catch(err => {
+      res.json({
+        confirmation: "fail",
+        message: err.message
+      });
+    });
+});
+
 router.get("/:resource/:id", (req, res) => {
   res.json({
     confirmation: "success",
