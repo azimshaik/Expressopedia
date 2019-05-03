@@ -10,6 +10,9 @@ import {
 } from "react-native";
 import { MapView, Permissions, Location, Marker } from "expo";
 import Instaclone from "./src/Instaclone";
+//these are all test screens
+import LoginModel1 from "./src/components/screens/LoginModel1";
+//
 
 import bgimage from "./assets/bgimage.jpg";
 import logo from "./assets/icon.png";
@@ -17,7 +20,9 @@ import logo from "./assets/icon.png";
 const { width: WIDTH } = Dimensions.get("window");
 export default class App extends React.Component {
   render() {
-    return <Instaclone />;
+    // return <Instaclone />;
+    // these are the test screen returns
+    return <LoginModel1 />;
   }
 }
 
@@ -43,7 +48,7 @@ const styles = StyleSheet.create({
     height: 120
   },
   logoText: {
-    color: "white",
+    color: "yellow",
     fontSize: 20,
     fontWeight: "500",
     marginTop: 10,
