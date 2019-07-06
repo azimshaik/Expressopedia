@@ -20,9 +20,9 @@ import logo from "./assets/icon.png";
 const { width: WIDTH } = Dimensions.get("window");
 export default class App extends React.Component {
   render() {
-    // return <Instaclone />;
+    return <Instaclone />;
     // these are the test screen returns
-    return <LoginModel1 />;
+    // return <LoginModel1 />;
   }
 }
 
